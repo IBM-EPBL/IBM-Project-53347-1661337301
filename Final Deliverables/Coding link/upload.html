@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<style>
+.bar
+{
+margin: 0px;
+padding: 15px;
+background-color:transparent;
+/* opacity:0.6; */
+font-family:'Poppins',sans-serif;
+font-size:25px;
+}
+a
+{
+color:#fff;
+float:right;
+text-decoration:none;
+padding-right:20px;
+}
+a:hover{
+    padding: 3.5px;
+    background: #FAAE42;
+
+}
+h1{
+    color:white;
+    font-family:'Times New Roman', Times, serif;
+    font-size:30;
+    
+}
+h2{
+    color:red;
+    font-family: Poppins;
+    font-size:60;
+    margin-bottom: 10px;
+    text-shadow:2px 2px whitesmoke;
+}
+.my-cta-button{
+
+    font-size: 20px;
+    color: rgb(15, 15, 15); 
+    border: 1px solid #0e0e0ccf;
+    padding: 3.5px;
+   
+    cursor: pointer; 
+}
+.my-cta-button:hover{
+    border: 2px solid #faae42;
+    padding: 3.5px;
+    background: #FAAE42;
+}
+p
+{
+color:white;
+font-family: Poppins;
+font-size:30px;
+}
+body{
+        background-image: url("https://static.livebooks.com/dd3ec1f6d91b4ad5acfdc59f1790dc66/i/e1c31d5f0f06486093d7e0829afc253f/1/GCuCv726gZycFxatknDdac/Mi_Cocina7942.jpg?dpr=2");
+       background-repeat: no-repeat;
+       background-size: cover;
+       height: 600px;
+       background-position: center;
+    
+    }
+.btn{
+border-radius: 8px;
+background:#FF69B4;
+width:auto;
+color: white;
+padding: 15px 32px;
+font-family:cursive;
+font-size:15px;
+}
+.bx {
+	outline: thick ridge pink;
+      width:300px;
+}
+</style>
+</head>
+
+<body>
+    <div class="bar">    
+      <a href="/pred">Predict</a>
+      <a href="/home">Home</a>
+     <br>
+        </div>
+    <div class="container">
+            <center> <div id="content" style="margin-top:2em">
+            <h2><center>Food Demand Forecasting</center></h2>
+                 <form action="{{ url_for('predict') }}" method="POST">
+     
+     <select id="homepage_featured" name="homepage_featured" class="bx">
+      <option value="">homepage_featured</option>
+         <option value="0">No</option>
+         <option value="1">Yes</option>
+     
+       </select><br><br>
+     <select id="emailer_for_promotion" name="emailer_for_promotion" class="bx">
+      <option value="">emailer_for_promotion</option>
+         <option value="0">No</option>
+         <option value="1">Yes</option>
+     
+       </select><br><br>
+     
+     
+     <input class="bx" type="text" name="op_area" placeholder="Enter the op_area(2-7)"><br><br>
+     <select class="bx" id="cuisine" name="cuisine">
+     <option value="" class="bx">Cuisine</option>
+         <option value="0">Continental</option>
+         <option value="1">Indian</option>
+         <option value="2">Italian</option>
+         <option value="3">Thai</option>
+     
+       </select><br><br>
+       <input class="bx" type="text" name="city_code" placeholder="Enter city_code"><br><br>
+     <input class="bx" type="text" name="region_code" placeholder="Enter region_code"><br><br>
+     <select id="category" class="bx" name="category">
+     <option value="" class="bx">Category</option>
+         <option value="0">Beverages</option>
+         <option value="1">Biryani</option>
+         <option value="2">Desert</option>
+         <option value="3">Extras</option>
+         <option value="4">Fish</option>
+         <option value="5">Other Snacks</option>
+         <option value="6">Pasta</option>
+         <option value="7">Pizza</option>
+         <option value="8">Rice Bowl</option>
+         <option value="9">Salad</option>
+         <option value="10">Sandwich</option>
+         <option value="11">Seafood</option>
+         <option value="12">Soup</option>
+         <option value="13">Starters</option>
+       </select><br><br>
+     
+                     <input type="submit" class="btn" value="Predict">
+                 </form>
+     
+         <br>
+          <h1 class="predict">Number of orders: {{ prediction_text }}</h1>
+            </div></center>
+         </div>
+     </body>
+</body>
